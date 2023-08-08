@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/Nginx.Dockerfile
+    image: nginx
+    ports:
+      - 80:80
+    links:
+      - fpm
+    volumes:
+        - ./:/var/www/laravel-docker
+    environment:
+        SERVICE_NAME: nginx
+        SERVICE_TAGS: dev
+  fpm:
+    build:
+      context: .
+      dockerfile: docker/Fpm.Dockerfile
+    volumes:
+        - ./:/var/www/laravel-docker
+    links:
+      - mysql_db
+    environment:
+        SERVICE_NAME: fpm
+        SERVICE_TAGS: dev
+  mysql_db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel_docker
+      SERVICE_NAME: mysql_db
+      SERVICE_TAGS: dev
+    ports:
+      - 3306:3306
