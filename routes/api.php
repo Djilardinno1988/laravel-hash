@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(HashController::class)->group(function () {
-    Route::get('/hash/{hash}', 'show');
-    Route::post('/hash', 'store');
+    Route::get('hash/{hash}', 'show')->name('hash.show');
+    Route::post('hash', 'store')->name('hash.store');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

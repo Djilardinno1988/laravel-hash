@@ -9,7 +9,15 @@ class Hash extends Model
 {
     use HasFactory;
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'hash';
+
     protected $fillable = [
-        'hash'
+        'item',
+        'hash',
     ];
 }

@@ -2,16 +2,16 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class HashTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * Test health route.
+     *
+     * @test
      */
-    public function test_example(): void
+    public function test_(): void
     {
         $response = $this->get('/');
 

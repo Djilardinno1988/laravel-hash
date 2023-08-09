@@ -15,7 +15,7 @@ class HashResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'item' => $this->hash,
+            'hash' => $this->hash,
         ];
     }
 }

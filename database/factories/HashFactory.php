@@ -16,8 +16,11 @@ class HashFactory extends Factory
      */
     public function definition(): array
     {
+        $name = fake()->name();
+
         return [
-            //
+            'item' => $name,
+            'hash' => sha1($name),
         ];
     }
 }
